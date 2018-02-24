@@ -5,6 +5,7 @@ sleep 2
 puts "lets go"
 
 pong_host = ENV['PONGHOST']
+
 url_string = "http://#{pong_host}:8080"
 
 while true do
