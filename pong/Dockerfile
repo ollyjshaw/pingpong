@@ -1,13 +1,9 @@
-FROM vertx/vertx3
+FROM node:alpine
 
-ENV VERTICLE_NAME pong.js
+ADD . /home/node/app/
 
-ENV VERTICLE_HOME /usr/verticles
+WORKDIR /home/node/app
 
 EXPOSE 8080
 
-COPY $VERTICLE_NAME $VERTICLE_HOME/
-
-WORKDIR $VERTICLE_HOME
-ENTRYPOINT ["sh", "-c"]
-CMD ["vertx run $VERTICLE_NAME -cp $VERTICLE_HOME"]
+CMD ["node", "pong.js"]
